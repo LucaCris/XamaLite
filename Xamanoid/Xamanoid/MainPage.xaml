@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xamanoid"
+             x:Class="Xamanoid.MainPage" BackgroundColor="Black">
+  <Grid x:Name="MainGrid">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <Label x:Name="lives" LineBreakMode="NoWrap" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White" Margin="5,0,0,-5" FontSize="Medium"/>
+    <Label x:Name="brickN" Grid.Column="1" LineBreakMode="NoWrap" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Yellow" Margin="0,0,0,-5" FontSize="Medium"/>
+    <Label x:Name="pts" Grid.Column="2" LineBreakMode="NoWrap" HorizontalOptions="End" VerticalOptions="Center" TextColor="Red" Margin="0,0,5,-5" FontSize="Medium"/>
+    <Label x:Name="head" Grid.ColumnSpan="3" LineBreakMode="NoWrap" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White" BackgroundColor="DarkGreen" Margin="0,0,0,-5" FontSize="Medium" MaxLines="1"/>
+    <BoxView Grid.ColumnSpan="3" HeightRequest="12">
+      <BoxView.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+      </BoxView.GestureRecognizers>
+    </BoxView>
+
+    <BoxView Grid.Row="1" Grid.ColumnSpan="3" BackgroundColor="Blue"/>
+    <AbsoluteLayout CompressedLayout.IsHeadless="False" x:Name="shadowview" Grid.Row="1" Grid.ColumnSpan="3" Margin="10,5,5,0"/>
+    <AbsoluteLayout CompressedLayout.IsHeadless="True" x:Name="view" Grid.Row="1" Grid.ColumnSpan="3" Margin="5,0,5,0"/>
+    <AbsoluteLayout CompressedLayout.IsHeadless="True" x:Name="over" Grid.Row="1" Grid.ColumnSpan="3" Margin="5,0,5,0"/>
+    <StackLayout Orientation="Vertical" x:Name="GameTitle" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="End" VerticalOptions="End" BackgroundColor="Black" Opacity="0.66" Padding="10" Margin="0,5,10,5">
+      <Label Text="Xamanoid Lite" TextColor="AliceBlue" FontSize="20" FontAttributes="Bold" HorizontalOptions="End"/>
+      <Label Text="Programmed by" TextColor="Gray" HorizontalOptions="End" FontSize="10"/>
+      <Label Text="Luca Crisafulli" TextColor="AliceBlue" HorizontalOptions="End" FontSize="20"/>
+    </StackLayout>
+    <Button x:Name="LT" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="DarkRed" Pressed="Button_Pressed" Released="Button_Released" TextColor="Red" Text="⫷" FontSize="50"/>
+    <Button x:Name="RT" Grid.Row="2" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="DarkRed" Pressed="Button_Pressed" Released="Button_Released" TextColor="Red" Text="⫸" FontSize="50"/>
+    <Button x:Name="FW" Grid.Row="2" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Navy" Clicked="FW_Clicked" FontSize="50" TextColor="White"/>
+  </Grid>
+</ContentPage>
